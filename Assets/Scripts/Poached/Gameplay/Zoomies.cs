@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Poached.Gameplay
+namespace GGJ.Poached.Gameplay
 {
 public class Zoomies : MonoBehaviour
 {
