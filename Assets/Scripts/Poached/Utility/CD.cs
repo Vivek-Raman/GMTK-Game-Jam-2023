@@ -2,17 +2,20 @@
 using System.Collections;
 using UnityEngine;
 
-[Serializable]
-public class CD
+namespace GGJ.Poached.Utility
 {
-    public bool State;
-    public float Time;
-
-    public IEnumerator Cooldown(bool finalState, Action endAction = null)
+    [Serializable]
+    public class CD
     {
-        State = !finalState;
-        yield return new WaitForSeconds(Time);
-        State = finalState;
-        endAction?.Invoke();
+        public bool State;
+        public float Time;
+
+        public IEnumerator Cooldown(bool finalState, Action endAction = null)
+        {
+            State = !finalState;
+            yield return new WaitForSeconds(Time);
+            State = finalState;
+            endAction?.Invoke();
+        }
     }
 }

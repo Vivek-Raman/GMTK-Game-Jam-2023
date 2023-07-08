@@ -1,7 +1,7 @@
 using Unity.Logging;
 using UnityEngine;
 
-namespace Poached.UI
+namespace GGJ.Poached.UI
 {
 public class MainMenu : MonoBehaviour
 {

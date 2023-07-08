@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Poached.UI
+namespace GGJ.Poached.UI
 {
     public class PauseManager : MonoBehaviour
     {
