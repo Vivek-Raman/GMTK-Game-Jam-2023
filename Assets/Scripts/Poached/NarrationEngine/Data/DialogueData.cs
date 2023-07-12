@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GGJ.Poached.Gameplay.Character;
 using UnityEngine;
 
 namespace GGJ.Poached.NarrationEngine.Data

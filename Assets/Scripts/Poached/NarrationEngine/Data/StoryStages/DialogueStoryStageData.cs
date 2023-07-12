@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using GGJ.Poached.Gameplay.Character;
+using GGJ.Poached.UI.Dialogue;
 using Unity.Logging;
 using UnityEngine;
 
@@ -14,16 +15,16 @@ public class DialogueStoryStageData : StoryStageData
     public override IEnumerator OnStageProcess()
     {
         List<CharacterData> characters = dialogues.ConvertAll(dialogue => dialogue.CharacterData);
-        Dictionary<string, CharacterState> characterInstances = GameManager.Characters.LocateCharactersInScene(characters);
+        // Dictionary<string, CharacterState> characterInstances = GameManager.Characters.LocateCharactersInScene(characters);
 
         Log.Debug("DialogueStoryStage start");
 
         foreach (DialogueData dialogue in dialogues)
         {
-            Debug_PrintDialogueToLogs(dialogue);
+            // Debug_PrintDialogueToLogs(dialogue);
 
             // TODO: yield control to dialogue system
-            // yield return dialogueSystem.showLines(characterInstances[dialogue.CharacterData.CharacterName], dialogue.Lines);
+            yield return FindObjectOfType<DialogueDisplay>().showLines(dialogue.CharacterData, dialogue.Lines);
         }
 
         Log.Debug("DialogueStoryStage end");
