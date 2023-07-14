@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Debug-Vivek.unity
+    guid: fc6d21d400abe3544b40fd2be001755b
   m_configObjects: {}

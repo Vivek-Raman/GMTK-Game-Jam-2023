@@ -1,4 +1,6 @@
 using GGJ.Poached.Audio;
+using GGJ.Poached.Gameplay;
+using GGJ.Poached.NarrationEngine;
 using GGJ.Poached.UI;
 using GGJ.Poached.Utility;
 using UnityEngine;
@@ -7,13 +9,16 @@ namespace GGJ.Poached
 {
 [RequireComponent(typeof(PauseManager))]
 [RequireComponent(typeof(AudioManager))]
+[RequireComponent(typeof(CharacterManager))]
+[RequireComponent(typeof(StoryManager))]
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     // private SettingsManager _settingsManager;
     private AudioManager _audioManager;
     // private CameraManager _cameraManager;
     private PauseManager _pauseManager;
-    // private PlayerManager _playerManager;
+    private CharacterManager _characterManager;
+    private StoryManager _storyManager;
 
     #region Public Getters
 
@@ -21,7 +26,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public static AudioManager Audio => Instance._audioManager;
     // public static CameraManager Camera => Instance._cameraManager;
     public static PauseManager Pause => Instance._pauseManager;
-    // public static PlayerManager Player => Instance._playerManager;
+    public static CharacterManager Characters => Instance._characterManager;
+    public static StoryManager Story => Instance._storyManager;
 
     #endregion
 
@@ -30,10 +36,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         base.Awake();
 
         // InitializeSettings();
-        // InitializeAudio();
+        InitializeAudio();
         // InitializeCamera();
         InitializePause();
-        // InitializePlayer();
+        InitializeCharacters();
+        InitializeStory();
     }
 
     #region Initialize Methods
@@ -42,6 +49,22 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         _pauseManager = this.GetComponent<PauseManager>();
         _pauseManager.UnpauseGame();
+    }
+
+    private void InitializeAudio()
+    {
+        _audioManager = this.GetComponent<AudioManager>();
+    }
+
+    private void InitializeCharacters()
+    {
+        _characterManager = this.GetComponent<CharacterManager>();
+    }
+
+    private void InitializeStory()
+    {
+        _storyManager = this.GetComponent<StoryManager>();
+        GameManager.Characters.onCharacterSpawnedInScene.AddListener(_storyManager.OnCharacterEntersScene);
     }
 
     #endregion Initialize Methods

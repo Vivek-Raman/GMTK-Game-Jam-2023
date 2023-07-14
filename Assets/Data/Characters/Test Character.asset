@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83062fab00274b7b8da3c4faa03c7be0, type: 3}
+  m_Name: Test Character
+  m_EditorClassIdentifier: 
+  characterName: Vivek
+  prefab: {fileID: 5110926874130439868, guid: 5f7852d46957ae44584e399861fb807c, type: 3}
